@@ -1,12 +1,12 @@
 <script>
 import SearchItem from './components/SearchItem.vue';
-import MoviesList from './components/MoviesList.vue';
+import MediaList from './components/MediaList.vue';
 
 export default {
   name: 'App',
   components: {
     SearchItem,
-    MoviesList
+    MediaList
   }
 }
 </script>
@@ -16,7 +16,7 @@ export default {
   <SearchItem />
 
   <!-- movies list -->
-  <MoviesList />
+  <MediaList />
 </template>
 
 <style lang='scss'>

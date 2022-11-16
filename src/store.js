@@ -2,22 +2,31 @@ import { reactive } from 'vue';
 import axios from 'axios';
 
 export const store = reactive({
-    API_URL: 'https://api.themoviedb.org/3/search/movie?api_key=aad7527bbb1b49c37ed6f87a1229d050&language=en-US&query=',
-    movies: null,
-    searchedMovie: '',
+    API_URL: 'https://api.themoviedb.org/3/search/multi?api_key=aad7527bbb1b49c37ed6f87a1229d050&query=',
+    mediaList: null,
+    searchedMedia: '',
+    nothingFound: false,
 
     /* methods */
-    callApi(movie) {
-        if (this.searchedMovie.length != '') {
-            console.log("Searching ", movie);
+    callApi(media) {
+        if (this.searchedMedia != '') {
+            console.log("Searching ", media);
 
-            const url = `${this.API_URL}${movie}`;
+            const url = `${this.API_URL}${media}`;
             console.log(url);
 
             axios.get(url)
                 .then(response => {
                     console.log(response);
-                    this.movies = response.data.results;
+                    this.mediaList = response.data.results;
+                    this.searchedMedia = '';
+
+                    if (this.mediaList.length === 0 || this.mediaList[0].media_type === 'person') {
+                        console.log('Nothing found');
+                        this.nothingFound = true;
+                    } else {
+                        this.nothingFound = false;
+                    }
                 })
                 .catch(err => {
                     console.log(err);
