@@ -21,7 +21,10 @@ export default {
             <h4>{{ media.title }}</h4>
             <h5>{{ media.original_title }}</h5>
             <img :src="store.selectFlag(media.original_language)" :alt="media.original_language" class="flag">
-            <p>{{ media.vote_average }}</p>
+            <p>
+                <i class="fa-solid fa-star" v-for=" in Math.ceil(media.vote_average / 2)"></i>
+                <i class="fa-regular fa-star" v-for=" in 5 - Math.ceil(media.vote_average / 2)"></i>
+            </p>
         </div>
     </div>
 </template>

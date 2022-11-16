@@ -39,7 +39,7 @@ export const store = reactive({
         let url = 'https://countryflagsapi.com/svg/';
 
         if (flag === 'en') {
-            return url + 'gb-eng';
+            return url + 'gb';
         }
         return url + flag;
     }
