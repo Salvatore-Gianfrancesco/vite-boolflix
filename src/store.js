@@ -23,6 +23,14 @@ export const store = reactive({
                     console.log(err);
                 })
         }
+    },
 
+    selectFlag(flag) {
+        let url = 'https://countryflagsapi.com/svg/';
+
+        if (flag === 'en') {
+            return url + 'gb-eng';
+        }
+        return url + flag;
     }
 })

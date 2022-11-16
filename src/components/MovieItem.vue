@@ -1,9 +1,15 @@
 <script>
+import { store } from '../store';
 
 export default {
     name: 'MovieItem',
     props: {
         movie: Object
+    },
+    data() {
+        return {
+            store
+        }
     }
 }
 </script>
@@ -13,7 +19,7 @@ export default {
         <div class="movie">
             <h4>{{ movie.title }}</h4>
             <h5>{{ movie.original_title }}</h5>
-            <p>{{ movie.original_language }}</p>
+            <img :src="store.selectFlag(movie.original_language)" :alt="movie.original_language">
             <p>{{ movie.vote_average }}</p>
         </div>
     </div>
@@ -24,5 +30,9 @@ export default {
     height: 400px;
     border: 1px solid black;
     padding: 1rem;
+
+    img {
+        height: 50px;
+    }
 }
 </style>
