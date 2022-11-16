@@ -17,9 +17,10 @@ export default {
 <template>
     <div class="col" v-if="media.media_type === 'movie' || media.media_type === 'tv'">
         <div class="media">
+            <img :src="store.imgUrl + media.backdrop_path" class="cover">
             <h4>{{ media.title }}</h4>
             <h5>{{ media.original_title }}</h5>
-            <img :src="store.selectFlag(media.original_language)" :alt="media.original_language">
+            <img :src="store.selectFlag(media.original_language)" :alt="media.original_language" class="flag">
             <p>{{ media.vote_average }}</p>
         </div>
     </div>
@@ -31,8 +32,12 @@ export default {
     border: 1px solid black;
     padding: 1rem;
 
-    img {
-        height: 50px;
+    .cover {
+        width: 100%;
+    }
+
+    .flag {
+        height: 20px;
     }
 }
 </style>
