@@ -1,21 +1,24 @@
 <script>
+import SearchItem from './components/SearchItem.vue';
+import MoviesList from './components/MoviesList.vue';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    SearchItem,
+    MoviesList
+  }
 }
 </script>
 
 <template>
-  <div class="test text-center">
-    <h1>Test</h1>
-  </div>
+  <!-- search -->
+  <SearchItem />
+
+  <!-- movies list -->
+  <MoviesList />
 </template>
 
 <style lang='scss'>
-.test {
-  background-color: gray;
 
-  h1 {
-    color: white;
-  }
-}
 </style>
