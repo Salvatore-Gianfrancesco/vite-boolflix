@@ -1,22 +1,22 @@
 <script>
-import SearchItem from './components/SearchItem.vue';
-import MediaList from './components/MediaList.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
   name: 'App',
   components: {
-    SearchItem,
-    MediaList
+    AppHeader,
+    AppMain
   }
 }
 </script>
 
 <template>
-  <!-- search -->
-  <SearchItem />
+  <!-- Header -->
+  <AppHeader />
 
-  <!-- movies list -->
-  <MediaList />
+  <!-- Main -->
+  <AppMain />
 </template>
 
 <style lang='scss'>
