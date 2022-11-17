@@ -11,12 +11,36 @@ export default {
         return {
             store
         }
+    },
+    methods: {
+        selectFlag(flag) {
+            let url = 'https://countryflagsapi.com/svg/';
+
+            if (flag === 'en') {
+                return url + 'gb';
+            }
+            return url + flag;
+        },
+        showCard(media) {
+            /* if ((media.media_type === 'tv' && media.genre_ids.includes(store.selectedTVGenre))) {
+                return true;
+            }
+            return false; */
+
+            if (media.media_type === 'movie' && (media.genre_ids.includes(store.selectedMovieGenre) || store.selectedMovieGenre == 0)) {
+                return true;
+            } else if (media.media_type === 'tv' && (media.genre_ids.includes(store.selectedTVGenre) || store.selectedTVGenre == 0)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
 </script>
 
 <template>
-    <div class="col" v-if="(media.media_type === 'movie' || media.media_type === 'tv')">
+    <div class="col" v-if="showCard(media)">
         <div class="media">
             <div class="cover">
                 <img :src="'https://image.tmdb.org/t/p/w342' + media.backdrop_path" v-if="media.backdrop_path != null">
@@ -37,8 +61,7 @@ export default {
 
                     <p>
                         <span class="fw-bold">Language</span>:
-                        <img :src="store.selectFlag(media.original_language)" :alt="media.original_language"
-                            class="flag">
+                        <img :src="selectFlag(media.original_language)" :alt="media.original_language" class="flag">
                     </p>
 
                     <!-- overview -->

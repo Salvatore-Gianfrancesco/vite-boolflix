@@ -30,7 +30,7 @@ export default {
 main {
     min-height: 100vh;
     background-color: $gray;
-    padding-top: 65px;
+    padding-top: 100px;
 
     h2 {
         color: $light;

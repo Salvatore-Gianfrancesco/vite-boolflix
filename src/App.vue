@@ -13,9 +13,6 @@ export default {
     return {
       store
     }
-  },
-  mounted() {
-    // store.createGenresList();
   }
 }
 </script>
