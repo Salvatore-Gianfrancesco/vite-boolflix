@@ -42,6 +42,13 @@ export default {
 
                     <!-- overview -->
                     <p><span class="fw-bold">Overview</span>: {{ media.overview }}</p>
+
+                    <!-- <button type="button" class="btn">Show cast</button> -->
+
+                    <!-- cast -->
+                    <p>
+                        <span class="fw-bold">Cast</span>: {{ store.showCast(media) }}
+                    </p>
                 </div>
             </div>
 
@@ -83,6 +90,19 @@ export default {
                 height: 15px;
                 width: 30px;
             }
+
+            /*  button {
+                background-color: $primary_color;
+                color: $dark;
+                font-weight: 700;
+
+                &:hover {
+                    background-color: $primary_color;
+                    color: $dark;
+                    opacity: 75%;
+                    transition: 0.3s;
+                }
+            } */
 
             &::-webkit-scrollbar {
                 width: 5px;
