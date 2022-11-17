@@ -4,7 +4,8 @@ import { store } from '../store';
 export default {
     name: 'MediaItem',
     props: {
-        media: Object
+        media: Object,
+        index: Number
     },
     data() {
         return {
@@ -15,10 +16,10 @@ export default {
 </script>
 
 <template>
-    <div class="col" v-if="media.media_type === 'movie' || media.media_type === 'tv'">
+    <div class="col" v-if="(media.media_type === 'movie' || media.media_type === 'tv')">
         <div class="media">
             <div class="cover">
-                <img :src="store.imgUrl + media.backdrop_path" v-if="media.backdrop_path != null">
+                <img :src="'https://image.tmdb.org/t/p/w342' + media.backdrop_path" v-if="media.backdrop_path != null">
                 <img src="../assets/img/no_img.jpg" alt="" v-else>
 
                 <div class="description p-2">
@@ -46,8 +47,8 @@ export default {
                     <!-- <button type="button" class="btn">Show cast</button> -->
 
                     <!-- cast -->
-                    <p>
-                        <span class="fw-bold">Cast</span>: {{ store.showCast(media) }}
+                    <p v-if="store.castList[index] != ''">
+                        <span class="fw-bold">Cast</span>: {{ store.castList[index] }}
                     </p>
                 </div>
             </div>

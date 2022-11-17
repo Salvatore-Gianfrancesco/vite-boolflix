@@ -20,7 +20,7 @@ export default {
         <div class="container">
             <!-- row -->
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3" v-if="!store.nothingFound">
-                <MediaItem v-for="media in store.mediaList" :media="media" />
+                <MediaItem v-for="(media, index) in store.mediaList" :media="media" :index="index" />
             </div>
 
             <!-- no media found -->

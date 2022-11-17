@@ -10,14 +10,19 @@ export default {
 </script>
 
 <template>
-    <header class="d-flex justify-content-between align-items-center p-2">
+    <header class="d-flex justify-content-between p-2">
         <!-- logo -->
         <section class="logo">
             <img src="../assets/img/logo.png" alt="">
         </section>
 
-        <!-- search -->
-        <SearchItem />
+        <div class="d-flex align-items-center gap-4">
+
+
+            <!-- search -->
+            <SearchItem />
+        </div>
+
     </header>
 </template>
 
