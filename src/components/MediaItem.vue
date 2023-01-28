@@ -13,14 +13,6 @@ export default {
         }
     },
     methods: {
-        selectFlag(flag) {
-            let url = 'https://countryflagsapi.com/svg/';
-
-            if (flag === 'en') {
-                return url + 'gb';
-            }
-            return url + flag;
-        },
         showCard(media) {
             /* if ((media.media_type === 'tv' && media.genre_ids.includes(store.selectedTVGenre))) {
                 return true;
@@ -57,11 +49,6 @@ export default {
                         <span class="fw-bold">Vote</span>:
                         <i class="fa-solid fa-star" v-for=" in Math.ceil(media.vote_average / 2)"></i>
                         <i class="fa-regular fa-star" v-for=" in 5 - Math.ceil(media.vote_average / 2)"></i>
-                    </p>
-
-                    <p>
-                        <span class="fw-bold">Language</span>:
-                        <img :src="selectFlag(media.original_language)" :alt="media.original_language" class="flag">
                     </p>
 
                     <!-- overview -->
@@ -108,11 +95,6 @@ export default {
 
             .fa-star {
                 color: $star;
-            }
-
-            .flag {
-                height: 15px;
-                width: 30px;
             }
 
             /*  button {
